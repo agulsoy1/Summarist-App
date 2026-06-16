@@ -3,17 +3,19 @@ import Link from "next/link";
 import React from "react";
 import { auth } from "../firebase";
 import { logOut } from "../services/auth";
-import { useAuth } from "../AuthContext";
+import { useAuth } from "@/context/authContext";
+import { useModal } from "@/context/ModalContext";
 
 type SideBarProps = {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function SideBar({ setOpenModal }: SideBarProps) {
-  const user = useAuth();
+export default function SideBar() {
+  const {setOpenModal} = useModal();
+  const { user } = useAuth();
 
   return (
-    <div className="flex flex-col items-center relative bg-[rgb(247,250,249)] text-black w-[200px] mr-20">
+    <div className="flex flex-col h-screen items-center relative bg-[rgb(247,250,249)] text-black w-[200px] mr-20">
       <figure className="py-4">
         <Link href="/">
           <Image
@@ -25,7 +27,7 @@ export default function SideBar({ setOpenModal }: SideBarProps) {
         </Link>
       </figure>
       <div className="flex flex-col h-screen pt-10">
-        <ul className="flex flex-col text-[16px] pb-[190px]">
+        <ul className="flex flex-col text-[16px]">
           <li className="pb-10">
             <Link href="/for-you" className="flex gap-2">
               <img
@@ -67,7 +69,7 @@ export default function SideBar({ setOpenModal }: SideBarProps) {
             </Link>
           </li>
         </ul>
-        <ul className="flex flex-col text-[16px] gap-4">
+        <ul className="flex flex-col h-full justify-end items-start text-[16px] gap-4">
           <li className="pb-5">
             <Link className="flex gap-2" href="/settings">
               <img
@@ -90,11 +92,23 @@ export default function SideBar({ setOpenModal }: SideBarProps) {
           </li>
           <li className="pb-5 flex gap-2">
             <img
-                src="/assets/arrow-right-from-bracket-solid-full.svg"
-                className="w-[25]"
-                alt=""
-              />
-            <button onClick={() => (user ? logOut() : setOpenModal(true))}>
+              src="/assets/arrow-right-from-bracket-solid-full.svg"
+              className="w-[25] cursor-pointer"
+              alt=""
+            />
+            <button
+              onClick={() => {
+                console.log("clicked");
+                console.log("user:", user);
+                if (user) {
+                  logOut();
+                } else {
+                  console.log("openingModal");
+                  setOpenModal(true);
+                }
+              }}
+              className="cursor-pointer"
+            >
               {user ? "Logout" : "Login"}
             </button>
           </li>

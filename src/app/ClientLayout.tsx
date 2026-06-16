@@ -1,42 +1,41 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import SideBar from "./components/SideBar";
 import LoginModal from "./components/LoginModal";
-import { auth } from "./firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import { AUthProvider } from "./AuthContext";
 import SearchBar from "./components/SearchBar";
+
+import { AudioPlayerProvider } from "@/context/audio-player-context";
+import { AuthProvider, useAuth } from "@/context/authContext";
+import { ModalProvider } from "@/context/ModalContext";
+import { PremiumProvider } from "@/context/PremiumContext";
 
 export default function clientLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  const [openModal, setOpenModal] = useState(false);
-  const [user, setUser] = useState<any>(null);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return () => unsubscribe();
-  }, []);
-
-  const isLogin = !!user;
-
+}) {
   return (
-    <AUthProvider>
-      <div className="flex overflow-x-hidden overflow-y-hidden">
-        <SideBar setOpenModal={setOpenModal} />
-        <div className="flex-1 min-w-0 flex flex-col justify-center min-h-screen">
-          <SearchBar />
-          <div className="w-full flex justify-center items-center">
-            {children}
-          </div>
-        </div>
-        <LoginModal openModal={openModal} setOpenModal={setOpenModal} />
-      </div>
-    </AUthProvider>
+    <AuthProvider>
+      <PremiumProvider>
+        <ModalProvider>
+          <AudioPlayerProvider>
+            <div className="flex overflow-x-hidden overflow-y-hidden">
+              <div className="fixed">
+                <SideBar />
+              </div>
+
+              <div className="flex-1 flex flex-col mx-auto justify-center w-screen overflow-x-hidden overflow-y-hidden">
+                <SearchBar />
+                <div className="w-full h-[1px] bg-black/10 mb-5"></div>
+
+                <div className="mx-auto max-w-[1080px]">{children}</div>
+              </div>
+
+              <LoginModal />
+            </div>
+          </AudioPlayerProvider>
+        </ModalProvider>
+      </PremiumProvider>
+    </AuthProvider>
   );
 }

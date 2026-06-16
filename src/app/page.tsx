@@ -1,355 +1,266 @@
 import Image from "next/image";
-import "./style.css";
+// import "./style.css";
 import { AiFillFileText, AiFillBulb, AiFillAudio } from "react-icons/ai";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { RiLeafLine } from "react-icons/ri";
 import { BiCrown } from "react-icons/bi";
-// import Logo from "../../public/assets/logo.png"
+import Footer from "./components/Footer";
 
 export default function Home() {
+
   return (
-    <div className="flex-col justify-center items-center">
-      <nav className="nav">
-        <div className="nav__wrapper">
-          <figure className="nav__img--mask">
-            <Image src="/assets/logo.png" className="nav__img" width={150} height={40} alt="logo" />
-          </figure>
-          <ul className="nav__list--wrapper">
-            <li className="nav__list nav__list--login">Login</li>
-            <li className="nav__list nav__list--mobile">About</li>
-            <li className="nav__list nav__list--mobile">Contact</li>
-            <li className="nav__list nav__list--mobile">Help</li>
-          </ul>
-        </div>
-      </nav>
-      <section id="landing">
-        <div className="container">
-          <div className="row">
-            <div className="landing__wrapper">
+    <div>
+      <div>
+        <div className="flex-col justify-center items-center tracking-tight">
+          <nav className="nav">
+            <div className="flex justify-between">
+              <Image
+                src="/assets/logo.png"
+                width={200}
+                height={40}
+                alt="logo"
+              />
+              <ul className="flex gap-4">
+                <li>Login</li>
+                <li>About</li>
+                <li>Contact</li>
+                <li>Help</li>
+              </ul>
+            </div>
+          </nav>
+          <section className="my-10">
+            <div className="flex justify-between">
               <div className="landing__content">
-                <div className="landing__content__title">
+                <div className="my-[30px] text-[40px] font-bold leading-[60px] text-[#032b41]">
                   Gain more knowledge <br className="remove--tablet" />
                   in less time
                 </div>
-                <div className="landing__content__subtitle">
+                <div className="text-[20px] text-[#394547] font-light mb-5">
                   Great summaries for busy people,
-                  <br className="remove--tablet" />
+                  <br />
                   individuals who barely have time to read,
-                  <br className="remove--tablet" />
+                  <br />
                   and even people who don’t like to read.
                 </div>
-                <button className="btn home__cta--btn">Login</button>
+                <button className="bg-[#2bd97c] w-[300px] rounded h-[40px]">
+                  Login
+                </button>
               </div>
-              <figure className="landing__image--mask">
-                <Image src="/assets/landing.png" width={150} height={150} alt="landing" />
-              </figure>
+              <Image
+                src="/assets/landing.png"
+                width={400}
+                height={150}
+                alt="landing"
+              />
             </div>
-          </div>
-        </div>
-      </section>
-      <section id="features">
-        <div className="container">
-          <div className="row">
-            <div className="section__title">
-              Understand books in few minutes
-            </div>
-            <div className="features__wrapper">
-              <div className="features">
-                <div className="features__icon">
-                  <AiFillFileText />
-                </div>
-                <div className="features__title">Read or listen</div>
-                <div className="features__sub--title">
-                  Save time by getting the core ideas from the best books.
-                </div>
+          </section>
+          <section className="my-25">
+            <div className="flex flex-col justify-center items-center text-center text-[#032b41]">
+              <div className="text-[30px] font-bold">
+                Understand books in few minutes
               </div>
-              <div className="features">
-                <div className="features__icon">
-                  <AiFillBulb />
+              <div className="stroke-[#032b41] flex w-full justify-evenly my-10">
+                <div className="flex flex-col items-center max-w-[300px]">
+                  <AiFillFileText size={50} />
+                  <div className="text-[22px] font-bold my-3">
+                    Read or listen
+                  </div>
+                  <div className="text-[18px]">
+                    Save time by getting the core ideas from the best books.
+                  </div>
                 </div>
-                <div className="features__title">Find your next read</div>
-                <div className="features__sub--title">
-                  Explore book lists and personalized recommendations.
+                <div className="flex flex-col items-center max-w-[300px]">
+                  <AiFillBulb size={50} />
+                  <div className="text-[22px] font-bold my-3">
+                    Find your next read
+                  </div>
+                  <div className="text-[18px]">
+                    Explore book lists and personalized recommendations.
+                  </div>
                 </div>
-              </div>
-              <div className="features">
-                <div className="features__icon">
-                  <AiFillAudio />
-                </div>
-                <div className="features__title">Briefcasts</div>
-                <div className="features__sub--title">
-                  Gain valuable insights from briefcasts
+                <div className="flex flex-col items-center max-w-[300px]">
+                  <AiFillAudio size={50} />
+                  <div className="text-[22px] font-bold my-3">Briefcasts</div>
+                  <div className="text-[18px]">
+                    Gain valuable insights from briefcasts
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="statistics__wrapper">
-              <div className="statistics__content--header">
-                <div className="statistics__heading">
-                  Enhance your knowledge
-                </div>
-                <div className="statistics__heading">
-                  Achieve greater success
-                </div>
-                <div className="statistics__heading">Improve your health</div>
-                <div className="statistics__heading">
-                  Develop better parenting skills
-                </div>
-                <div className="statistics__heading">Increase happiness</div>
-                <div className="statistics__heading">
-                  Be the best version of yourself!
-                </div>
+            <div className="text-[#6b757b] my-10 flex justify-between">
+              <div className="font-bold leading-15 text-[30px]">
+                <div>Enhance your knowledge</div>
+                <div>Achieve greater success</div>
+                <div>Improve your health</div>
+                <div>Develop better parenting skills</div>
+                <div>Increase happiness</div>
+                <div>Be the best version of yourself!</div>
               </div>
-              <div className="statistics__content--details">
-                <div className="statistics__data">
-                  <div className="statistics__data--number">93%</div>
-                  <div className="statistics__data--title">
+              <div className="pl-6 pr-10 bg-[#f1f6f4] flex flex-col justify-center text-[20px] max-w-[490px]">
+                <div className="flex gap-3 mb-5">
+                  <div className="text-[#0365f2] font-bold">93%</div>
+                  <div>
                     of Summarist members <b>significantly increase</b> reading
                     frequency.
                   </div>
                 </div>
-                <div className="statistics__data">
-                  <div className="statistics__data--number">96%</div>
-                  <div className="statistics__data--title">
+                <div className="flex gap-3 mb-5">
+                  <div className="text-[#0365f2] font-bold">96%</div>
+                  <div>
                     of Summarist members <b>establish better</b> habits.
                   </div>
                 </div>
-                <div className="statistics__data">
-                  <div className="statistics__data--number">90%</div>
-                  <div className="statistics__data--title">
+                <div className="flex gap-3 mb-5">
+                  <div className="text-[#0365f2] font-bold">90%</div>
+                  <div>
                     have made <b>significant positive</b> change to their lives.
                   </div>
                 </div>
               </div>
             </div>
-            <div className="statistics__wrapper">
-              <div className="statistics__content--details statistics__content--details-second">
-                <div className="statistics__data">
-                  <div className="statistics__data--number">91%</div>
-                  <div className="statistics__data--title">
+            <div className="my-10 flex justify-between text-[#6b757b]">
+              <div className="py-10 pl-6 pr-10 bg-[#f1f6f4] flex flex-col justify-center text-[20px] max-w-[490px]">
+                <div className="flex gap-3 mb-5">
+                  <div className="text-[#0365f2] font-bold">91%</div>
+                  <div>
                     of Summarist members <b>report feeling more productive</b>{" "}
                     after incorporating the service into their daily routine.
                   </div>
                 </div>
-                <div className="statistics__data">
-                  <div className="statistics__data--number">94%</div>
-                  <div className="statistics__data--title">
+                <div className="flex gap-3 mb-5">
+                  <div className="text-[#0365f2] font-bold">94%</div>
+                  <div>
                     of Summarist members have <b>noticed an improvement</b> in
                     their overall comprehension and retention of information.
                   </div>
                 </div>
-                <div className="statistics__data">
-                  <div className="statistics__data--number">88%</div>
-                  <div className="statistics__data--title">
+                <div className="flex gap-3 mb-5">
+                  <div className="text-[#0365f2] font-bold">88%</div>
+                  <div>
                     of Summarist members <b>feel more informed</b> about current
                     events and industry trends since using the platform.
                   </div>
                 </div>
               </div>
-              <div className="statistics__content--header statistics__content--header-second">
-                <div className="statistics__heading">Expand your learning</div>
-                <div className="statistics__heading">Accomplish your goals</div>
-                <div className="statistics__heading">
-                  Strengthen your vitality
+              <div className="font-bold leading-15 text-[30px]">
+                <div>Expand your learning</div>
+                <div>Accomplish your goals</div>
+                <div>Strengthen your vitality</div>
+                <div>Become a better caregiver</div>
+                <div>Improve your mood</div>
+                <div>Maximize your abilities</div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div className="flex flex-col items-center justify-center w-full">
+              <div className="text-[30px] font-bold text-[#032b41]">
+                What our members say
+              </div>
+              <div className="reviews__wrapper max-w-[565px] my-5">
+                <div className="bg-[#fff3d7] mb-8 py-4 px-4 text-[#6b757b]">
+                  <div className="flex gap-2">
+                    <div className="review__name">Hanna M.</div>
+                    <div className="text-[#0365f2]">
+                      <BsStarFill />
+                    </div>
+                  </div>
+                  <div className="review__body">
+                    This app has been a <b>game-changer</b> for me! It's saved
+                    me so much time and effort in reading and comprehending
+                    books. Highly recommend it to all book lovers.
+                  </div>
                 </div>
-                <div className="statistics__heading">
-                  Become a better caregiver
+                <div className="bg-[#fff3d7] mb-8 py-4 px-4 text-[#6b757b]">
+                  <div className="flex gap-2">
+                    <div className="review__name">David B.</div>
+                    <div className="text-[#0365f2]">
+                      <BsStarFill />
+                    </div>
+                  </div>
+                  <div className="review__body">
+                    I love this app! It provides
+                    <b>concise and accurate summaries</b> of books in a way that
+                    is easy to understand. It's also very user-friendly and
+                    intuitive.
+                  </div>
                 </div>
-                <div className="statistics__heading">Improve your mood</div>
-                <div className="statistics__heading">
-                  Maximize your abilities
+                <div className="bg-[#fff3d7] mb-8 py-4 px-4 text-[#6b757b]">
+                  <div className="flex gap-2">
+                    <div className="review__name">Nathan S.</div>
+                    <div className="text-[#0365f2]">
+                      <BsStarFill />
+                    </div>
+                  </div>
+                  <div className="review__body">
+                    This app is a great way to get the main takeaways from a
+                    book without having to read the entire thing.
+                    <b>The summaries are well-written and informative. </b>
+                    Definitely worth downloading.
+                  </div>
+                </div>
+                <div className="bg-[#fff3d7] mb-3 py-4 px-4 text-[#6b757b]">
+                  <div className="flex gap-2">
+                    <div className="review__name">Ryan R.</div>
+                    <div className="text-[#0365f2]">
+                      <BsStarFill />
+                    </div>
+                  </div>
+                  <div className="review__body">
+                    If you're a busy person who
+                    <b>loves reading but doesn't have the time</b> to read every
+                    book in full, this app is for you! The summaries are
+                    thorough and provide a great overview of the book's content.
+                  </div>
+                </div>
+              </div>
+              <div className="reviews__btn--wrapper">
+                <button className="bg-[#2bd97c] w-[300px] rounded h-[40px]">
+                  Login
+                </button>
+              </div>
+            </div>
+          </section>
+          <section className="my-20">
+            <div className="flex flex-col items-center">
+              <div className="text-[30px] font-bold text-[#032b41] mb-9">
+                Start growing with Summarist now
+              </div>
+              <div className="gap-10 flex text-center items-center w-full justify-evenly">
+                <div className="w-full h-50 px-5 py-30 bg-[#d7e9ff] rounded-[10px] flex flex-col justify-center items-center">
+                  <div className="text-[#0365f2]">
+                    <BiCrown size={45} />
+                  </div>
+                  <div className="text-[35px] font-bold my-3">3 Million</div>
+                  <div className="text-[#6b757b]">
+                    Downloads on all platforms
+                  </div>
+                </div>
+                <div className="w-full h-50 px-5 py-30 bg-[#d7e9ff] rounded-[10px] flex flex-col items-center justify-center">
+                  <div className="flex gap-1 text-[#0365f2]">
+                    <BsStarFill size={25} />
+                    <BsStarHalf size={25} />
+                  </div>
+                  <div className="text-[35px] font-bold">4.5 Stars</div>
+                  <div className="text-[#6b757b]">
+                    Average ratings on iOS and Google Play
+                  </div>
+                </div>
+                <div className="w-full h-50 px-5 py-30 bg-[#d7e9ff] rounded-[10px] flex flex-col items-center justify-center">
+                  <div className="text-[#0365f2]">
+                    <RiLeafLine size={45} />
+                  </div>
+                  <div className="text-[35px] font-bold">97%</div>
+                  <div className="text-[#6b757b]">
+                    Of Summarist members create a better reading habit
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
-      </section>
-      <section id="reviews">
-        <div className="row">
-          <div className="container">
-            <div className="section__title">What our members say</div>
-            <div className="reviews__wrapper">
-              <div className="review">
-                <div className="review__header">
-                  <div className="review__name">Hanna M.</div>
-                  <div className="review__stars">
-                    <BsStarFill />
-                  </div>
-                </div>
-                <div className="review__body">
-                  This app has been a <b>game-changer</b> for me! It's saved me
-                  so much time and effort in reading and comprehending books.
-                  Highly recommend it to all book lovers.
-                </div>
-              </div>
-              <div className="review">
-                <div className="review__header">
-                  <div className="review__name">David B.</div>
-                  <div className="review__stars">
-                    <BsStarFill />
-                  </div>
-                </div>
-                <div className="review__body">
-                  I love this app! It provides
-                  <b>concise and accurate summaries</b> of books in a way that
-                  is easy to understand. It's also very user-friendly and
-                  intuitive.
-                </div>
-              </div>
-              <div className="review">
-                <div className="review__header">
-                  <div className="review__name">Nathan S.</div>
-                  <div className="review__stars">
-                    <BsStarFill />
-                  </div>
-                </div>
-                <div className="review__body">
-                  This app is a great way to get the main takeaways from a book
-                  without having to read the entire thing.
-                  <b>The summaries are well-written and informative.</b>
-                  Definitely worth downloading.
-                </div>
-              </div>
-              <div className="review">
-                <div className="review__header">
-                  <div className="review__name">Ryan R.</div>
-                  <div className="review__stars">
-                    <BsStarFill />
-                  </div>
-                </div>
-                <div className="review__body">
-                  If you're a busy person who
-                  <b>loves reading but doesn't have the time</b> to read every
-                  book in full, this app is for you! The summaries are thorough
-                  and provide a great overview of the book's content.
-                </div>
-              </div>
-            </div>
-            <div className="reviews__btn--wrapper">
-              <button className="btn home__cta--btn">Login</button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="numbers">
-        <div className="container">
-          <div className="row">
-            <div className="section__title">
-              Start growing with Summarist now
-            </div>
-            <div className="numbers__wrapper">
-              <div className="numbers">
-                <div className="numbers__icon">
-                  <BiCrown />
-                </div>
-                <div className="numbers__title">3 Million</div>
-                <div className="numbers__sub--title">
-                  Downloads on all platforms
-                </div>
-              </div>
-              <div className="numbers">
-                <div className="numbers__icon numbers__star--icon">
-                  <BsStarFill />
-                  <BsStarHalf />
-                </div>
-                <div className="numbers__title">4.5 Stars</div>
-                <div className="numbers__sub--title">
-                  Average ratings on iOS and Google Play
-                </div>
-              </div>
-              <div className="numbers">
-                <div className="numbers__icon">
-                  <RiLeafLine />
-                </div>
-                <div className="numbers__title">97%</div>
-                <div className="numbers__sub--title">
-                  Of Summarist members create a better reading habit
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="footer">
-        <div className="container">
-          <div className="row">
-            <div className="footer__top--wrapper">
-              <div className="footer__block">
-                <div className="footer__link--title">Actions</div>
-                <div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Summarist Magazine</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Cancel Subscription</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Help</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Contact us</a>
-                  </div>
-                </div>
-              </div>
-              <div className="footer__block">
-                <div className="footer__link--title">Useful Links</div>
-                <div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Pricing</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Summarist Business</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Gift Cards</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Authors & Publishers</a>
-                  </div>
-                </div>
-              </div>
-              <div className="footer__block">
-                <div className="footer__link--title">Company</div>
-                <div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">About</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Careers</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Partners</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Code of Conduct</a>
-                  </div>
-                </div>
-              </div>
-              <div className="footer__block">
-                <div className="footer__link--title">Other</div>
-                <div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Sitemap</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Legal Notice</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Terms of Service</a>
-                  </div>
-                  <div className="footer__link--wrapper">
-                    <a className="footer__link">Privacy Policies</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="footer__copyright--wrapper">
-              <div className="footer__copyright">
-                Copyright &copy; 2023 Summarist.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
+      <Footer />
     </div>
   );
 }

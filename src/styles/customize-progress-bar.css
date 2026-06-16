@@ -1,0 +1,19 @@
+/* input[type="range"] {
+  --range-progress: 50%;
+}
+
+input[type="range"]::before {
+  background: #f50;
+  width: var(--range-progress);
+} */
+
+input[type="range"] {
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    #f50 var(--range-progress),
+    #ddd var(--range-progress)
+  );
+}

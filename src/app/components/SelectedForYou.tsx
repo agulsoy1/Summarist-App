@@ -2,17 +2,20 @@ import Link from "next/link";
 import React from "react";
 
 export default async function SelectedForYou() {
+
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+
   const res = await fetch(
     "https://us-central1-summaristt.cloudfunctions.net/getBooks?status=selected",
   );
   const selectedBook = await res.json();
 
   return (
-    <div>
+    <div className="flex justify-start items-start w-full">
       <section className="flex flex-col">
         <h1 className="font-bold text-[22px] pb-[10]">Selected just for you</h1>
         {selectedBook.map((selected: any) => (
-          <Link href="/book-details" key={selected.id}>
+          <Link href={`/book-details/${selected.id}`} key={selected.id}>
             <div className="flex items-center h-[185px] w-[645px] bg-[rgb(251,239,214)] mb-10">
               <p className="pb-25 px-6 top-0 text-md w-[250]">
                 {selected.subTitle}
