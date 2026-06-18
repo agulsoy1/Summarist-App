@@ -24,6 +24,7 @@ interface AudioPlayerContextType {
   setDuration: Dispatch<SetStateAction<number>>
   isPlaying: boolean
   setIsPlaying: Dispatch<SetStateAction<boolean>>
+  
 }
 const AudioPlayerContext = createContext<
   AudioPlayerContextType | undefined

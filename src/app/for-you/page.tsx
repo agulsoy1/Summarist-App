@@ -3,8 +3,6 @@ import SelectedForYou from "../components/SelectedForYou";
 
 export default async function forYou() {
 
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
   const recommendedRes = await fetch(
     "https://us-central1-summaristt.cloudfunctions.net/getBooks?status=recommended",
   );

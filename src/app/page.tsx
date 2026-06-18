@@ -1,12 +1,18 @@
+"use client";
 import Image from "next/image";
-// import "./style.css";
 import { AiFillFileText, AiFillBulb, AiFillAudio } from "react-icons/ai";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { RiLeafLine } from "react-icons/ri";
 import { BiCrown } from "react-icons/bi";
 import Footer from "./components/Footer";
+import { useAuth } from "@/context/authContext";
+import Link from "next/link";
+import { useModal } from "@/context/ModalContext";
+import { logOut } from "./services/auth";
 
 export default function Home() {
+  const { user } = useAuth();
+  const { setOpenModal } = useModal();
 
   return (
     <div>
@@ -21,10 +27,21 @@ export default function Home() {
                 alt="logo"
               />
               <ul className="flex gap-4">
-                <li>Login</li>
-                <li>About</li>
-                <li>Contact</li>
-                <li>Help</li>
+                <li>
+                  <Link
+                    href=""
+                    onClick={() => {
+                      user ? logOut() : setOpenModal(true);
+                    }}
+                  >
+                    {user ? "Logout" : "Login"}
+                  </Link>
+                </li>
+                <li className="cursor-not-allowed">About</li>
+                <li className="cursor-not-allowed">Contact</li>
+                <li>
+                  <Link href="/settings">Settings</Link>
+                </li>
               </ul>
             </div>
           </nav>
@@ -42,8 +59,13 @@ export default function Home() {
                   <br />
                   and even people who don’t like to read.
                 </div>
-                <button className="bg-[#2bd97c] w-[300px] rounded h-[40px]">
-                  Login
+                <button
+                  className="bg-[#2bd97c] w-[300px] rounded h-[40px]"
+                  onClick={() => {
+                    user ? logOut() : setOpenModal(true);
+                  }}
+                >
+                  {user ? "Logout" : "Login"}
                 </button>
               </div>
               <Image

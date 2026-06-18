@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { auth } from "../firebase";
 import { logOut } from "../services/auth";
 import { useAuth } from "@/context/authContext";
 import { useModal } from "@/context/ModalContext";
@@ -98,12 +97,9 @@ export default function SideBar() {
             />
             <button
               onClick={() => {
-                console.log("clicked");
-                console.log("user:", user);
                 if (user) {
                   logOut();
                 } else {
-                  console.log("openingModal");
                   setOpenModal(true);
                 }
               }}

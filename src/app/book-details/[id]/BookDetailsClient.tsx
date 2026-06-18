@@ -1,11 +1,9 @@
 "use client";
 import SaveButton from "@/app/components/SaveButton";
-import { useAudioPlayerContext } from "@/context/audio-player-context";
 import { useAuth } from "@/context/authContext";
 import { useModal } from "@/context/ModalContext";
 import { usePremium } from "@/context/PremiumContext";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 type Props = {
   book: any;
@@ -15,21 +13,16 @@ export default function BookDetailsClient({ book }: Props) {
   const { setOpenModal } = useModal();
   const { user } = useAuth();
   const router = useRouter();
-  const { isPremium, loading } = usePremium();
-  const { setCurrentTrack } = useAudioPlayerContext();
-  const [isLoading, setIsLoading] = useState(false)
+  const { isPremium} = usePremium();
 
-  const handlePlay = () => {
-    setCurrentTrack({
-      title: book.title,
-      src: book.audioLink,
-      author: book.author,
-      thumbnail: book.imageLink,
-    });
-    handleBookAccess()
-  };
+  const handleRead = () => {
+    handleBookAccess("read")
+  }
+  const handleListen = () => {
+    handleBookAccess("listen")
+  }
 
-  const handleBookAccess = () => {
+  const handleBookAccess = (mode: "read" | "listen") => {
     if (!user) {
       setOpenModal(true);
       return;
@@ -40,7 +33,7 @@ export default function BookDetailsClient({ book }: Props) {
       return;
     }
 
-    router.push(`/book-player/${book.id}`);
+    router.push(`/book-player/${book.id}?mode=${mode}`);
   };
 
   return (
@@ -83,7 +76,7 @@ export default function BookDetailsClient({ book }: Props) {
             </div>
             <div className="text-white flex gap-5">
               <button
-                onClick={handleBookAccess}
+                onClick={() => handleBookAccess("read")}
                 className="bg-[#032b41] rounded flex items-center gap-2 px-10 py-3 cursor-pointer"
               >
                 <img
@@ -94,7 +87,7 @@ export default function BookDetailsClient({ book }: Props) {
                 <div>Read</div>
               </button>
               <button
-                onClick={handlePlay}
+                onClick={() => handleBookAccess("listen")}
                 className="bg-[#032b41] rounded flex items-center gap-2 px-10 py-3 cursor-pointer"
               >
                 <img

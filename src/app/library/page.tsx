@@ -5,13 +5,18 @@ import { useEffect, useState } from "react";
 import BookList from "../components/BookList";
 import { useAuth } from "@/context/authContext";
 import { Book } from "@/types/book";
+import LibrayLoading from "./loading";
 
 export default function Library() {
   const [savedBook, setSavedBook] = useState<Book[]>([]);
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
   useEffect(() => {
     const fetchBooks = async () => {
+      if(loading){
+        return <LibrayLoading/>
+      }
+
       if (!user) {
         setSavedBook([]);
         return;

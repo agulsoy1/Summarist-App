@@ -1,6 +1,4 @@
-import React from 'react'
-
-export default function loading() {
+export default function LibrayLoading() {
   return (
     <div>loading</div>
   )

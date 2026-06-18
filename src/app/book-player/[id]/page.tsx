@@ -1,26 +1,25 @@
-import { AudioPlayer } from "@/app/components/audio/AudioPlayer";
-import React from "react";
+import BookPlayerClient from "../BookPlayerClient";
 
 type bookPlayerProps = {
-  params: {
-    id: string;
-  };
+  book: any;
+  mode?: "read" | "listen";
 };
 
-export default async function bookPlayer({ params }: bookPlayerProps) {
+export default async function BookPlayerPage({
+  params,
+  searchParams,
+}: {
+  params: { id: string };
+  searchParams: { mode?: "read" | "listen" };
+}) {
   const { id } = await params;
+  const { mode } = await searchParams;
 
   const res = await fetch(
-    `https://us-central1-summaristt.cloudfunctions.net/getBook?id=${id}`,
+    `https://us-central1-summaristt.cloudfunctions.net/getBook?id=${id}`
   );
 
   const book = await res.json();
 
-  return (
-    <div className="my-5 w-full flex flex-col items-center justify-center">
-      <div className=" mb-5 text-[24px] font-bold">{book.title}</div>
-      <div className="whitespace-pre-line">{book.summary}</div>
-      <AudioPlayer/>
-    </div>
-  );
+  return <BookPlayerClient book={book} mode={mode} />;
 }

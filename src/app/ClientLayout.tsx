@@ -8,19 +8,23 @@ import { AudioPlayerProvider } from "@/context/audio-player-context";
 import { AuthProvider, useAuth } from "@/context/authContext";
 import { ModalProvider } from "@/context/ModalContext";
 import { PremiumProvider } from "@/context/PremiumContext";
+import { useState } from "react";
 
 export default function clientLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
+  const [openModal, setOpenModal] = useState(false)
+
   return (
     <AuthProvider>
       <PremiumProvider>
         <ModalProvider>
           <AudioPlayerProvider>
             <div className="flex overflow-x-hidden overflow-y-hidden">
-              <div className="fixed">
+              <div className="w-[240px] flex-shrink-0">
                 <SideBar />
               </div>
 

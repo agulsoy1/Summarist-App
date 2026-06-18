@@ -2,7 +2,7 @@
 
 import { deleteDoc, doc, getDoc, setDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { auth, db } from "../firebase";
+import { db } from "../firebase";
 import { Book } from "@/types/book";
 import { useAuth } from "@/context/authContext";
 

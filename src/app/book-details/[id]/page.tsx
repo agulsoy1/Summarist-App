@@ -9,8 +9,6 @@ type PageProps = {
 export default async function BookDetails({ params }: PageProps) {
   const { id } = await params;
 
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
   const res = await fetch(
     `https://us-central1-summaristt.cloudfunctions.net/getBook?id=${id}`,
     { cache: "no-store" },

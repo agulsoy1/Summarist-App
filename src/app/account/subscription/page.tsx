@@ -1,7 +1,7 @@
 "use client";
 import Footer from "@/app/components/Footer";
 import { initFirebase } from "@/app/firebase";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getCheckoutUrl } from "../stripePayments";
 import { useRouter } from "next/navigation";
 import { usePremium } from "@/context/PremiumContext";
@@ -13,10 +13,6 @@ export default function Subscription() {
   const router = useRouter();
   const { isPremium, loading } = usePremium();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   const upgradeToPremium = async () => {
     let priceId = "";
     if (isSelected !== "yearly") {
@@ -27,6 +23,16 @@ export default function Subscription() {
     const checkoutUrl = await getCheckoutUrl(app, priceId);
     router.push(checkoutUrl);
   };
+
+  useEffect(() => {
+  if (!loading && isPremium) {
+    const timer = setTimeout(() => {
+      router.push("/for-you");
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }
+}, [loading, isPremium, router]);
 
   return (
     <div>

@@ -12,7 +12,6 @@ type SideBarProps = {
 
 export default function LoginModal() {
   const {openModal, setOpenModal} = useModal();
-  // const { user, loading } = useAuth();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -70,8 +69,11 @@ export default function LoginModal() {
     <div className="fixed inset-0 z-50 bg-black/60 w-screen h-screen flex justify-center items-center">
       <form
         onSubmit={handleSubmit}
-        className="p-5 flex flex-col items-center bg-gray-400 rounded-lg px-15 py-20 text-[20px]"
+        className="relative p-5 flex flex-col items-center bg-gray-400 rounded-lg px-15 py-20 text-[20px]"
       >
+        <button onClick={() => setOpenModal(false)} className="absolute top-5 right-5 text-[25px] font-bold">
+          <img src="/assets/x-solid-full.svg" width={25} alt="" />
+        </button>
         <h2 className="text-[25px] font-bold mb-5">
           {loginMode ? "Login" : "Sign Up"}
         </h2>

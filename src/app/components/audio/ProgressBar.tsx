@@ -10,7 +10,6 @@ export const ProgressBar = () => {
       const newTime = Number(progressBarRef.current?.value);
       audioRef.current.currentTime = newTime;
       setTimeProgress(newTime);
-      // if progress bar changes while audio is on pause
       progressBarRef.current.style.setProperty(
         "--range-progress",
         `${(newTime / duration) * 100}%`,
@@ -22,7 +21,6 @@ export const ProgressBar = () => {
     if (typeof time === "number" && !isNaN(time)) {
       const minutes = Math.floor(time / 60);
       const seconds = Math.floor(time % 60);
-      //Convert to string and pad with leading zeroes if necessary
       const formatMinutes = minutes.toString().padStart(2, "0");
       const formatSeconds = seconds.toString().padStart(2, "0");
       return `${formatMinutes}:${formatSeconds}`;
