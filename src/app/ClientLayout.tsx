@@ -27,7 +27,7 @@ export default function clientLayout({
                 <SideBar />
               </div>
 
-              <div className="flex-1 flex flex-col mx-auto max-w-[1080px] overflow-x-hidden overflow-y-hidden">
+              <div className="flex-1 flex flex-col mx-auto max-w-[1180px] overflow-x-hidden overflow-y-hidden">
                 <div className="relative flex flex-col">
                   <SearchBar />
                   <div className="h-[1px] bg-black/10 mb-5"></div>
