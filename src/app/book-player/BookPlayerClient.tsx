@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAudioPlayerContext } from "@/context/audio-player-context";
 import { AudioPlayer } from "@/app/components/audio/AudioPlayer";
 
@@ -13,6 +13,7 @@ export default function BookPlayerClient({ book, mode }: Props) {
   const { setCurrentTrack } = useAudioPlayerContext();
 
   useEffect(() => {
+
     if (mode === "listen" && book) {
       setCurrentTrack({
         title: book.title,

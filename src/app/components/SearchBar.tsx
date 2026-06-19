@@ -4,11 +4,14 @@ import { Book } from "@/types/book";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { fetchAllBooks } from "@/lib/booksAPI";
+import { divide } from "firebase/firestore/pipelines";
+import { logOut } from "../services/auth";
 
 export default function SearchBar() {
   const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
   const [books, setBooks] = useState<Book[]>([]);
+  const [openMenu, setOpenMenu] = useState(false);
 
   useEffect(() => {
     fetchAllBooks().then(setBooks);
@@ -24,10 +27,28 @@ export default function SearchBar() {
   return (
     <div className="flex justify-end items-center w-full gap-4">
       {user && (
-        <button className=" h-10 w-10 flex items-center justify-center rounded-[50px] bg-black text-white">
-          {user?.displayName?.charAt(0)}
-        </button>
+        <div className="relative flex flex-col items-center">
+          <button
+            onClick={() => setOpenMenu(!openMenu)}
+            className="h-10 w-10 flex items-center justify-center rounded-[50px] bg-black text-white"
+          >
+            {user?.displayName?.charAt(0)}
+          </button>
+          {openMenu && (
+            <div className="absolute top-12 h-10 w-20 bg-white border-black border-[2px] text-black font-bold flex items-center justify-center">
+              <button
+                onClick={() => {
+                  setOpenMenu(false);
+                  logOut();
+                }}
+              >
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
       )}
+
       <div className="relative my-5">
         <input
           type="text"

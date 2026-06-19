@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Settings() {
 
   return (
-    <div className="w-screen flex flex-col items-start my-5">
+    <div className="flex flex-col items-start my-5">
       <h1 className="text-[32px] font-bold">Settings</h1>
       <div className="w-full h-[1px] bg-black/10 my-5"></div>
       <div>

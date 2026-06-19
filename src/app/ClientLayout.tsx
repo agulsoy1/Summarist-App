@@ -15,8 +15,7 @@ export default function clientLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <AuthProvider>
@@ -28,11 +27,12 @@ export default function clientLayout({
                 <SideBar />
               </div>
 
-              <div className="flex-1 flex flex-col mx-auto justify-center w-screen overflow-x-hidden overflow-y-hidden">
-                <SearchBar />
-                <div className="w-full h-[1px] bg-black/10 mb-5"></div>
-
-                <div className="mx-auto max-w-[1080px]">{children}</div>
+              <div className="flex-1 flex flex-col mx-auto max-w-[1080px] overflow-x-hidden overflow-y-hidden">
+                <div className="relative flex flex-col">
+                  <SearchBar />
+                  <div className="h-[1px] bg-black/10 mb-5"></div>
+                </div>
+                {children}
               </div>
 
               <LoginModal />

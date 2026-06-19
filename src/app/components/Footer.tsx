@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="pt-15">Copyright &copy; 2023 Summarist.</div>
+      <div className="pt-15">Copyright &copy; 2026 Summarist.</div>
     </section>
   );
 }

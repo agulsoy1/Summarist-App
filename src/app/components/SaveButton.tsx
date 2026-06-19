@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { Book } from "@/types/book";
 import { useAuth } from "@/context/authContext";
+import { useModal } from "@/context/ModalContext";
 
 type saveButtonProps = {
   book: Book;
@@ -13,6 +14,7 @@ type saveButtonProps = {
 export default function SaveButton({ book }: saveButtonProps) {
   const [saveBook, setSaveBook] = useState(false);
   const {user} = useAuth();
+  const {setOpenModal} = useModal();
 
   useEffect(() => {
     const checkIfSaved = async () => {
@@ -29,7 +31,7 @@ export default function SaveButton({ book }: saveButtonProps) {
 
   const toggleLibrary = async () => {
     if (!user) {
-      alert("Please log in");
+      setOpenModal(true);
       return;
     }
 

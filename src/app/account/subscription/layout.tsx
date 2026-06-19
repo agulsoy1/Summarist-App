@@ -1,4 +1,4 @@
-export default function SubscriptionLayout({
+export default async function SubscriptionLayout({
   children,
 }: {
   children: React.ReactNode;
