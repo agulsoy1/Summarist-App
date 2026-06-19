@@ -237,8 +237,13 @@ export default function Home() {
                 </div>
               </div>
               <div className="reviews__btn--wrapper">
-                <button className="bg-[#2bd97c] w-[300px] rounded h-[40px]">
-                  Login
+                <button
+                  onClick={() => {
+                    user ? logOut() : setOpenModal(true);
+                  }}
+                  className="bg-[#2bd97c] w-[300px] rounded h-[40px]"
+                >
+                  {user ? "Logout" : "Login"}
                 </button>
               </div>
             </div>

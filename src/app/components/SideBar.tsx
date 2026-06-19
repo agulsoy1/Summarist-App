@@ -14,7 +14,7 @@ export default function SideBar() {
   const { user } = useAuth();
 
   return (
-    <div className="flex flex-col h-screen items-center relative bg-[rgb(247,250,249)] text-black w-[200px] mr-20">
+    <div className="fixed flex flex-col h-screen items-center bg-[rgb(247,250,249)] text-black w-[200px] mr-20">
       <figure className="py-4">
         <Link href="/">
           <Image
@@ -48,7 +48,7 @@ export default function SideBar() {
             </Link>
           </li>
           <li className="pb-10">
-            <Link className="flex gap-2" href="/">
+            <Link className="flex gap-2 cursor-not-allowed" href="/">
               <img
                 src="/assets/pen-clip-solid-full.svg"
                 className="w-[25]"
@@ -58,7 +58,7 @@ export default function SideBar() {
             </Link>
           </li>
           <li className="pb-10">
-            <Link className="flex gap-2" href="/">
+            <Link className="flex gap-2 cursor-not-allowed" href="/">
               <img
                 src="/assets/magnifying-glass-solid-full.svg"
                 className="w-[25]"
@@ -80,7 +80,7 @@ export default function SideBar() {
             </Link>
           </li>
           <li className="pb-5">
-            <Link className="flex gap-2" href="/">
+            <Link className="flex gap-2 cursor-not-allowed" href="/">
               <img
                 src="/assets/circle-question-solid-full.svg"
                 className="w-[25]"
