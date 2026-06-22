@@ -39,9 +39,13 @@ export default function Home() {
                 </li>
                 <li className="cursor-not-allowed">About</li>
                 <li className="cursor-not-allowed">Contact</li>
-                <li>
-                  <Link href="/settings">Settings</Link>
-                </li>
+                {user ? (
+                  <li>
+                    <Link href="/settings">Settings</Link>
+                  </li>
+                ) : (
+                  <li className="cursor-not-allowed">Settings</li>
+                )}
               </ul>
             </div>
           </nav>

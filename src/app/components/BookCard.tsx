@@ -12,15 +12,15 @@ type Book = {
 
 export default function BookCard({ book }: { book: Book }) {
   return (
-    <Link href={`/book-details/${book.id}`} key={book.id}>
-      <div className="relative w-[200px] h-[360px] flex flex-col justify-center items-center hover:bg-black/10">
+    <Link href={`/book-details/${book.id}`} key={book.id} className="h-[400px] hover:bg-black/10">
+      <div className="relative w-[clamp(150px,18vw,200px)] h-[360px] flex flex-col justify-center items-center">
         {book.subscriptionRequired && (
-          <div className=" absolute top-0 right-0 bg-black text-white text-sm rounded-[50px] px-2 mb-3">
+          <div className=" absolute top-0 right-0 bg-black text-white text-sm rounded-[50px] px-2">
             premium
           </div>
         )}
         <div className="flex flex-col h-[300px]">
-          <figure className="w-[175px]">
+          <figure className="w-[clamp(100px, 10vw, 175px)]">
             <img src={book.imageLink} alt="" />
           </figure>
           <div className="text-left w-45 mt-3">

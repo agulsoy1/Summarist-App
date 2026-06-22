@@ -8,8 +8,9 @@ import { VolumeControl } from "./VolumeControl";
 
 export const AudioPlayer = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
+
   return (
-    <div className="absolute bottom-0 w-full">
+    <div className="fixed bottom-0 right-0 left-0 md:left-[200px]">
       <div className="min-h-8 bg-black flex flex-col gap-9 lg:flex-row justify-between items-center text-white p-[0.5rem_10px]">
         <TrackInfo />
         <div className=" flex flex-col items-center justify-between gap-1 m-auto flex-1">
