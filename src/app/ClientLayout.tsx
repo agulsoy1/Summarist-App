@@ -76,7 +76,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
             )}
             <div className=" relative flex-1 min-w-0 flex flex-col mx-auto w-full sm:w-[400px] max-w-screen-xl px-4 sm:px-6 lg:px-10">
               <div className=" flex flex-col">
-                <SearchBar sidebarOpen={sidebarOpen} />
+                <SearchBar/>
                 <div className="h-[1px] bg-black/10 mb-5"></div>
               </div>
               {children}
