@@ -9,10 +9,11 @@ import { AuthProvider, useAuth } from "@/context/authContext";
 import { ModalProvider } from "@/context/ModalContext";
 import { PremiumProvider } from "@/context/PremiumContext";
 import { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { FiMenu } from "react-icons/fi";
+import Footer from "./components/Footer";
 
-export default function clientLayout({
+export default function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -26,16 +27,9 @@ export default function clientLayout({
 
 function LayoutContent({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
-  const router = useRouter();
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  // const [mobile, setMobile] = useState(false);
-
-  useEffect(() => {
-    if (!loading && !user && pathname !== "/") {
-      router.replace("/");
-    }
-  }, [user, loading, pathname, router]);
+  const showFooter = pathname === "/";
 
   if (loading) return null;
 
@@ -74,12 +68,17 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
                 <SideBar mobile={true} setSidebarOpen={setSidebarOpen} />
               </div>
             )}
-            <div className=" relative flex-1 min-w-0 flex flex-col mx-auto w-full sm:w-[400px] max-w-screen-xl px-4 sm:px-6 lg:px-10">
-              <div className=" flex flex-col">
-                <SearchBar/>
+            <div className="flex flex-col flex-1 min-w-0">
+              <div className=" relative flex-1 min-w-0 mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-10">
+                <SearchBar />
                 <div className="h-[1px] bg-black/10 mb-5"></div>
+                {children}
               </div>
-              {children}
+              {showFooter && (
+                <footer className="w-full">
+                  <Footer />
+                </footer>
+              )}
             </div>
             <LoginModal />
           </div>

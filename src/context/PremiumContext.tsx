@@ -1,3 +1,4 @@
+"use client"
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./authContext";
 import { getPremiumStatus } from "@/app/account/getPremiumStatus";

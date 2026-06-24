@@ -1,5 +1,5 @@
-import BookList from "../components/BookList";
-import SelectedForYou from "../components/SelectedForYou";
+import BookList from "@/app/components/BookList";
+import SelectedForYou from "@/app/components/SelectedForYou";
 
 export default async function forYou() {
 

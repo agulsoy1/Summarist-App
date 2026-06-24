@@ -30,16 +30,16 @@ export default function SideBar({
           <Link href="/library" onClick={() => setSidebarOpen?.(false)}>
             My Library
           </Link>
-          <Link href="/" className="cursor-not-allowed">
+          <Link href="" className="cursor-not-allowed">
             Highlights
           </Link>
-          <Link href="/" className="cursor-not-allowed">
+          <Link href="" className="cursor-not-allowed">
             Search
           </Link>
           <Link href="/settings" onClick={() => setSidebarOpen?.(false)}>
             Settings
           </Link>
-          <Link href="/" className="cursor-not-allowed">
+          <Link href="" className="cursor-not-allowed">
             Help & Support
           </Link>
           <button
@@ -62,7 +62,7 @@ export default function SideBar({
 
   return (
     <>
-      <div className="fixed flex flex-col h-screen items-center bg-[rgb(247,250,249)] text-black w-[200px] mr-20">
+      <div className="fixed flex flex-col h-screen items-center bg-[rgb(247,250,249)] text-black w-[200px]">
         <figure className="py-4">
           <Link href="/">
             <Image
@@ -96,7 +96,7 @@ export default function SideBar({
               </Link>
             </li>
             <li className="pb-10">
-              <Link className="flex gap-2 cursor-not-allowed" href="/">
+              <Link className="flex gap-2 cursor-not-allowed" href="">
                 <img
                   src="/assets/pen-clip-solid-full.svg"
                   className="w-[25]"
@@ -106,7 +106,7 @@ export default function SideBar({
               </Link>
             </li>
             <li className="pb-10">
-              <Link className="flex gap-2 cursor-not-allowed" href="/">
+              <Link className="flex gap-2 cursor-not-allowed" href="">
                 <img
                   src="/assets/magnifying-glass-solid-full.svg"
                   className="w-[25]"
@@ -128,7 +128,7 @@ export default function SideBar({
               </Link>
             </li>
             <li className="pb-5">
-              <Link className="flex gap-2 cursor-not-allowed" href="/">
+              <Link className="flex gap-2 cursor-not-allowed" href="">
                 <img
                   src="/assets/circle-question-solid-full.svg"
                   className="w-[25]"

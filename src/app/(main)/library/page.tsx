@@ -1,11 +1,11 @@
 "use client";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase";
 import { useEffect, useState } from "react";
-import BookList from "../components/BookList";
 import { useAuth } from "@/context/authContext";
 import { Book } from "@/types/book";
 import LibrayLoading from "./loading";
+import BookList from "@/app/components/BookList";
+import { db } from "@/app/firebase";
 
 export default function Library() {
   const [savedBook, setSavedBook] = useState<Book[]>([]);

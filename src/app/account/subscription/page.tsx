@@ -1,11 +1,9 @@
 "use client";
-import Footer from "@/app/components/Footer";
 import { initFirebase } from "@/app/firebase";
 import { useEffect, useState } from "react";
 import { getCheckoutUrl } from "../stripePayments";
 import { useRouter } from "next/navigation";
 import { usePremium } from "@/context/PremiumContext";
-import SubscriptionLoading from "./loading";
 
 export default function Subscription() {
   const [isSelected, setIsSelected] = useState("yearly");
@@ -37,13 +35,13 @@ export default function Subscription() {
   }, [loading, isPremium, router]);
 
   return (
-    <div>
-      <div className="bg-[#032b41] rounded-b-[250px] rounded-t-[10px]">
+    <div className="w-full">
+      <div className="w-full bg-[#032b41] md:rounded-b-[250px] rounded-t-[10px]">
         <div className="text-white flex flex-col justify-start items-center text-center pt-[50px]">
-          <div className="text-[48px] font-bold leading-[60px] py-4">
+          <div className="md:text-[48px] text-[26px] font-bold leading-[60px] py-4">
             Get unlimited access to many amazing books to read
           </div>
-          <div className="text-[20px] pb-[30px]">
+          <div className="md:text-[20px] text-[16px] pb-[30px]">
             Turn ordinary moments into amazing learning opportunities
           </div>
           <img
@@ -53,10 +51,10 @@ export default function Subscription() {
           />
         </div>
       </div>
-      <div className="flex gap-5 w-[600px] mx-auto my-12">
+      <div className="flex md:flex-row flex-col gap-5 w-[600px] mx-auto my-12">
         <div className="flex flex-col items-center text-center">
           <img
-            src="/assets/pen-clip-solid-full.svg"
+            src="/assets/file-lines-solid-full.svg"
             className="stroke-[#032b41]"
             width="70px"
             alt=""
@@ -103,7 +101,7 @@ export default function Subscription() {
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center">
-          <div className="font-bold text-[32px] pb-6">
+          <div className="font-bold md:text-[32px] text-[24px] pb-6">
             Choose the plan that fits you
           </div>
           <div>
@@ -120,11 +118,13 @@ export default function Subscription() {
                   )}
                 </div>
                 <div className="text-left">
-                  <div className="text-[18px] font-bold">
+                  <div className="md:text-[18px] text-[16px] font-bold">
                     Premium Plus Yearly
                   </div>
-                  <div className="text-[24px] font-bold">$99.99/year</div>
-                  <div className="text-[14px] text-black/40">
+                  <div className="md:text-[24px] text-[20px] font-bold">
+                    $99.99/year
+                  </div>
+                  <div className="md:text-[14px] text-[12px] text-black/40">
                     7-day free trial included
                   </div>
                 </div>
@@ -148,9 +148,13 @@ export default function Subscription() {
                   )}
                 </div>
                 <div className="text-left">
-                  <div className="text-[18px] font-bold">Premium Monthly</div>
-                  <div className="text-[24px] font-bold">$9.99/month</div>
-                  <div className="text-[14px] text-black/40">
+                  <div className="md:text-[18px] text-[16px] font-bold">
+                    Premium Monthly
+                  </div>
+                  <div className="md:text-[24px] text-[20px] font-bold">
+                    $9.99/month
+                  </div>
+                  <div className="md:text-[14px] text-[12px] text-black/40">
                     No trial included
                   </div>
                 </div>
@@ -169,14 +173,14 @@ export default function Subscription() {
           </div>
         </div>
       )}
-      <section className="my-20">
+      <section className="my-20 max-w-screen-lg mx-auto">
         <div className="w-full">
           <button
             onClick={() => setOpenIndex(openIndex === 0 ? null : 0)}
-            className="w-full text-[24px] py-5 border-b border-black/10"
+            className="w-full md:text-[24px] text-[20px] py-5 border-b border-black/10"
           >
             <div className="flex justify-between items-center">
-              <div className="font-bold">
+              <div className="md:font-bold font-bold">
                 How does the free 7-day trial work?
               </div>
               <img
@@ -187,7 +191,7 @@ export default function Subscription() {
             </div>
           </button>
           <div
-            className={`transition-all duration-400 ease-in-out ${openIndex === 0 ? "max-h-40 opacity-100 py-5" : "max-h-0 opacity-0"}`}
+            className={`md:text-[20px] text-[14px] transition-all duration-400 ease-in-out ${openIndex === 0 ? "max-h-40 opacity-100 py-5" : "max-h-0 opacity-0"}`}
           >
             Begin your complimentary 7-day trial with a Summarist annual
             membership. You are under no obligation to continue your
@@ -200,9 +204,9 @@ export default function Subscription() {
         <div className="w-full">
           <button
             onClick={() => setOpenIndex(openIndex === 1 ? null : 1)}
-            className="w-full text-[24px] py-5 border-b border-black/10"
+            className="w-full md:text-[24px] text-[20px] py-5 border-b border-black/10"
           >
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center text-start">
               <div className="font-bold">
                 Can I switch subscriptions from monthly to yearly, or yearly to
                 monthly?
@@ -215,7 +219,7 @@ export default function Subscription() {
             </div>
           </button>
           <div
-            className={`transition-all duration-400 ease-in-out ${openIndex === 1 ? "max-h-40 opacity-100 py-5" : "max-h-0 opacity-0"}`}
+            className={`md:text-[20px] text-[14px] transition-all duration-400 ease-in-out ${openIndex === 1 ? "max-h-40 opacity-100 py-5" : "max-h-0 opacity-0"}`}
           >
             While an annual plan is active, it is not feasible to switch to a
             monthly plan. However, once the current month ends, transitioning
@@ -225,7 +229,7 @@ export default function Subscription() {
         <div className="w-full">
           <button
             onClick={() => setOpenIndex(openIndex === 2 ? null : 2)}
-            className="w-full text-[24px] py-5 border-b border-black/10"
+            className="w-full md:text-[24px] text-[20px] py-5 border-b border-black/10"
           >
             <div className="flex justify-between items-center">
               <div className="font-bold">
@@ -239,7 +243,7 @@ export default function Subscription() {
             </div>
           </button>
           <div
-            className={`transition-all duration-400 ease-in-out ${openIndex === 2 ? "max-h-40 opacity-100 py-5" : "max-h-0 opacity-0"}`}
+            className={`md:text-[20px] text-[14px] transition-all duration-400 ease-in-out ${openIndex === 2 ? "max-h-40 opacity-100 py-5" : "max-h-0 opacity-0"}`}
           >
             Premium membership provides you with the ultimate Summarist
             experience, including unrestricted entry to many best-selling books
@@ -250,7 +254,7 @@ export default function Subscription() {
         <div className="w-full">
           <button
             onClick={() => setOpenIndex(openIndex === 3 ? null : 3)}
-            className="w-full text-[24px] py-5 border-b border-black/10"
+            className="w-full md:text-[24px] text-[20px] py-5 border-b border-black/10"
           >
             <div className="flex justify-between items-center">
               <div className="font-bold">
@@ -264,7 +268,7 @@ export default function Subscription() {
             </div>
           </button>
           <div
-            className={`transition-all duration-400 ease-in-out ${openIndex === 3 ? "max-h-40 opacity-100 py-5" : "max-h-0 opacity-0"}`}
+            className={`md:text-[20px] text-[14px] transition-all duration-400 ease-in-out ${openIndex === 3 ? "max-h-40 opacity-100 py-5" : "max-h-0 opacity-0"}`}
           >
             You will not be charged if you cancel your trial before its
             conclusion. While you will not have complete access to the entire
@@ -273,7 +277,6 @@ export default function Subscription() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <section className="w-full bg-[#F1F6F4] flex flex-col justify-center items-center py-20">
-      <div className="flex gap-30">
+      <div className="w-full flex md:flex-row flex-col md:justify-center items-start gap-5 md:gap-30">
         <div className="footer__block">
           <div className="font-bold text-[18px] pb-3">Actions</div>
           <div>

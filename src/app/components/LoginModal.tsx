@@ -27,10 +27,10 @@ export default function LoginModal() {
     try {
       if (loginMode) {
         await logIn(email, password);
-        router.push("/")
       } else {
         await signUp(email, password, firstName, lastName);
       }
+      router.push("/for-you")
       setOpenModal(false);
     } catch (error: any) {
       console.error("Auth error: ", error);
@@ -84,6 +84,7 @@ export default function LoginModal() {
             try {
               await googleLogin();
               setOpenModal(false);
+              router.push("/for-you")
             } catch (error) {
               console.error("Google login error,", error);
             }
@@ -185,6 +186,7 @@ export default function LoginModal() {
             try {
               await guestLogin();
               setOpenModal(false);
+              router.push("/for-you")
             } catch (error) {
               console.error("Guest login error:", error);
             }
